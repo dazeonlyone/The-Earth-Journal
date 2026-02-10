@@ -1,0 +1,147 @@
+/* style.css */
+
+/* 1. Reset Dasar & Background Layar */
+body {
+    background-color: #555; /* Warna gelap di luar kertas agar fokus ke web */
+    font-family: 'Times New Roman', Times, serif;
+    margin: 0;
+    padding: 20px;
+    color: #1a1a1a;
+}
+
+/* 2. Container Utama (Kertas Koran) */
+.paper {
+    background-color: #fdfbf7; /* Warna krem khas koran lama */
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 50px;
+    border: 1px solid #000;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+/* 3. Header Koran */
+.newspaper-header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    margin-bottom: 20px;
+}
+
+.meta-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border-bottom: 1px solid black;
+    padding-bottom: 5px;
+}
+
+.center-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    margin: 10px 0;
+    letter-spacing: -3px;
+    text-transform: uppercase;
+}
+
+/* Navigasi - Disembunyikan saat Print */
+nav {
+    margin: 10px 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+    padding: 0 15px;
+    font-size: 1.1rem;
+}
+
+nav a:hover, nav a.active {
+    text-decoration: underline;
+    color: #c00; /* Warna merah gelap saat hover */
+}
+
+/* 4. Judul Artikel (Headline) */
+.headline {
+    font-size: 2.8rem;
+    text-align: center;
+    line-height: 1.1;
+    margin: 30px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.author-line {
+    text-align: center;
+    border-bottom: 1px solid #888;
+    padding-bottom: 15px;
+    margin-bottom: 30px;
+    font-style: italic;
+    font-size: 1.1rem;
+}
+
+/* 5. FOTO DI TENAH ATAS (Full Width) */
+.featured-image {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.featured-image img {
+    width: 100%;
+    height: 450px;
+    border: 1px solid black;
+    padding: 4px;
+    filter: grayscale(100%); /* Efek hitam putih biar makin kerasa korannya */
+}
+
+.caption {
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
+    margin-top: 8px;
+    color: #444;
+}
+
+/* 6. TEKS BERKOLOM (Kanan-Kiri) */
+.columns {
+    column-count: 2;         /* Membagi jadi 2 kolom */
+    column-gap: 40px;        /* Jarak antar kolom */
+    column-rule: 1px solid #ddd; /* Garis tipis di tengah kolom */
+    text-align: justify;     /* Teks rata kanan-kiri */
+    line-height: 1.6;        /* Spasi antar baris biar enak dibaca */
+    font-size: 1.1rem;
+}
+
+/* Huruf besar di awal paragraf (Dropcap) */
+.dropcap {
+    float: left;
+    font-size: 5rem;
+    line-height: 0.8;
+    margin-right: 10px;
+    font-weight: bold;
+    font-family: 'Georgia', serif;
+}
+
+/* 7. Box Solusi */
+.action-box {
+    margin-top: 40px;
+    border: 4px double black;
+    padding: 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+}
+
+/* 8. PENGATURAN PRINT */
+@media print {
+    body { background: white; padding: 0; }
+    .paper { 
+        box-shadow: none; 
+        border: none; 
+        width: 100%; 
+        max-width: 100%; 
+        padding: 0; 
+    }
+    nav, .no-print { display: none; } /* Menu gak ikut keprint */
+    .columns { column-count: 2; }
+    .featured-image img { filter: grayscale(100%); } /* Pastikan foto hitam putih pas diprint */
+}
